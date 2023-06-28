@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tom-pod
+  namespace: test-ns
+  labels:
+    type: webserver
+spec:
+  containers:
+    - name: mytom
+      image: tomee
+      ports:
+        - containerPort: 8080
+          hostPort: 8080

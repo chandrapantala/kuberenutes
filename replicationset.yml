@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: tom-rs
+  labels:
+    type: weserver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: webserver
+  templete:
+    metadata:
+      name: tom-pod
+      labels:
+        type: webserver
+    spec: 
+      containes:
+        - name: mytom
+          image: tomee
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+
+
