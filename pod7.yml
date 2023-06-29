@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: http-pod
+  labels: 
+    type: webserver
+spec:
+  containers:
+    - name: http1
+      image: httpd 
+

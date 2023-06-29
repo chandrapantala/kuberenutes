@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tom-dev
+  labels:
+    type: appserver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: appserver
+  template:
+    metadata:
+      name: tom-pod
+      labels:
+        type: appserver
+    spec:
+      containers:
+        - name: mytom
+          image: tomee
+      tolerations:
+        - key: slave1
+          operator: Equal
+          value: ch2
+          effect: NoSchedule
+
