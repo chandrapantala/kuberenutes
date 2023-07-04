@@ -18,5 +18,5 @@ spec:
     spec:
       containers:
         - name: myworkerapp
-          image: dockersamples/examplevotingapp_worke
+          image: dockersamples/examplevotingapp_worker
 
