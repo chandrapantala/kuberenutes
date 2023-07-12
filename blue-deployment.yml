@@ -1,4 +1,20 @@
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue-ser
+  labels:
+    author: ch2
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 30008
+  selector:
+    type: web
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,6 +23,8 @@ metadata:
     type: web
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       type: web

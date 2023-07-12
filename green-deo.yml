@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-ser
+  labels:
+    author: ch2
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 30009
+  selector:
+    type: proxy
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-nginx-dep
+  labels:
+    type: web
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      type: proxy
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        type: proxy
+    spec:
+      containers:
+        - name: mynginx
+          image: nginx:1.25
+
+
