@@ -20,3 +20,7 @@ spec:
         - name: myworkerapp
           image: dockersamples/examplevotingapp_worker
 
+#its voting app creation in the file of "deployment" image copy in docker hub
+---> kubectl apply -f worker-app-dep.yml
+---> kubectl get pods | less
+---> kubectl delete -f worker-app-dep.yml
