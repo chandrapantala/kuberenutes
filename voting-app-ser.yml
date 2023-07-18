@@ -13,3 +13,7 @@ spec:
       nodePort: 30008
   selector:
     type: voting-app
+
+#its used create voting app with hepl of "service" file
+---> kubectl apply -f voting-app-ser.yml
+---> kubectl delete -f voting-app-ser.yml
