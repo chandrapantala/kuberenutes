@@ -25,3 +25,8 @@ spec:
           value: ch2
           effect: NoSchedule
 
+#tolerancy is used to alredy tainted nodes to allows to run pods
+Tolerations "allow the scheduler to schedule pods with matching taints".
+--> kubectl apply -f tolerancy1.yml
+--> kubectl get all
+--> kubectl get pods -o wide #shows which slave taintes thats slave in runs toleration runs pods
