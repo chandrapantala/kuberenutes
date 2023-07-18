@@ -21,3 +21,6 @@ spec:
           image: dockersamples/examplevotingapp_vote
 ...
 
+#its used to create voting app "deployment" docker image dockersamples/examolevotingapp_vote
+---> kubectl apply -f voting-app-dep.yml 
+---> kubectl get pods
