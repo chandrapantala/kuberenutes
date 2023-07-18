@@ -16,3 +16,16 @@ spec:
     - name: myvol
       emptyDir: {}
 
+#its used to create volumes then volumes are used to backup pods data
+but they are 3 types of volumes emptyDir,posistive volume,posistive volume claim
+---> kubectl apply -f volume1.yml
+---> kubectl get all
+---> kubectl exec -it redis-pod --bash
+--> ls #not any files 
+--> cd redis
+--> ca > file1 -------one,two and #check ps -ef not on ps (apt-get insatll -y procps)
+-->kill 1
+----> kubectl get pods #shows restart count can change to "1" create new pod in kill the process in place and data also come back
+-->cd redis 
+-->cat file1 #show the data of (one,two)
+--> ps -ef #not shows again aksing installation applications not recovered in volumes pf "empltydir"
